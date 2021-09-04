@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const CalculatorApp = (props) => {
 
@@ -8,6 +8,11 @@ export const CalculatorApp = (props) => {
     const decrement = () => setCount(count - 1)
 
     const increment = () => setCount(count + 1)
+
+    useEffect(() => {
+        console.log("useEffect ran")
+        document.title = count
+    }, [count])
 
     return (
         <div>
