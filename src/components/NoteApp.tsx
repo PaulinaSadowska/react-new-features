@@ -9,8 +9,9 @@ const NoteApp = () => {
     const [notes, dispatch] = useReducer(notesReducer, [])
 
     useEffect(() => {
-        const notes = JSON.parse(localStorage.getItem('notes'))
-        if (notes) {
+        const savedNotes = localStorage.getItem('notes')
+        if (savedNotes) {
+            const notes = JSON.parse(savedNotes)
             dispatch({ type: 'POPULATE_NOTES', notes })
         }
     }, [])

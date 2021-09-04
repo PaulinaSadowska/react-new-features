@@ -11,7 +11,7 @@ const AddNoteForm = () => {
 
     const position = useMousePosition()
 
-    const onSubmitNote = (e) => {
+    const onSubmitNote = (e: any) => {
         e.preventDefault()
         dispatch({ type: 'ADD_NOTE', note: { title, body } })
         setTitle("")
