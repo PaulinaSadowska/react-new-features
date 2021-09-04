@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
+import NotesContext from '../context/notes-context';
 
-const Note = ({ note, removeNote }) => {
+const Note = ({ note }) => {
 
-    useEffect(() => {
-        console.log("hello")
-        return () => {
-            console.log("clean up")
-        }
-    }, [])
+    const { dispatch } = useContext(NotesContext)
+
+    const removeNote = (title) => {
+        dispatch({ type: 'REMOVE_NOTE', title })
+    }
 
     return (
         <div>
