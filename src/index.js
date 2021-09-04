@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { CalculatorApp } from './playground/CalculatorApp'
-import { NoteApp } from './playground/NoteApp';
+import NoteApp from './components/NoteApp';
 
 
 ReactDOM.render(
