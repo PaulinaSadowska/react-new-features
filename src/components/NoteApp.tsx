@@ -3,8 +3,9 @@ import notesReducer from '../reducers/notes'
 import NoteList from './NoteList'
 import AddNoteForm from './AddNoteForm'
 import NotesContext from '../context/notes-context';
-import { PopulateNoteAction } from '../reducers/notes'
+import { ActionType } from '../reducers/notes'
 import { NoteData } from './Note';
+
 
 const NoteApp = () => {
 
@@ -14,7 +15,7 @@ const NoteApp = () => {
         const savedNotes = localStorage.getItem('notes')
         if (savedNotes) {
             const notes: NoteData[] = JSON.parse(savedNotes)
-            dispatch(new PopulateNoteAction(notes))
+            dispatch({ type: ActionType.POPULATE_NOTES, notes })
         }
     }, [])
 

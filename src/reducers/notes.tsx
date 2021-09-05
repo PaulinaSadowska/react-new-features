@@ -1,44 +1,40 @@
 import type { NoteData } from '../components/Note'
 
-interface Action {
+enum ActionType {
+    ADD_NOTE,
+    REMOVE_NOTE,
+    POPULATE_NOTES
 }
 
-class AddNoteAction implements Action {
-    note: NoteData
-
-    constructor(note: NoteData) {
-        this.note = note
-    }
+interface AddNoteAction {
+    type: ActionType.ADD_NOTE;
+    note: NoteData;
 }
 
-class RemoveNoteAction implements Action {
-    title: string
-
-    constructor(title: string) {
-        this.title = title
-    }
+interface RemoveNoteAction {
+    type: ActionType.REMOVE_NOTE;
+    title: string;
 }
 
-class PopulateNoteAction implements Action {
-    notes: Array<NoteData>
-
-    constructor(notes: Array<NoteData>) {
-        this.notes = notes
-    }
+interface PopulateNoteAction {
+    type: ActionType.POPULATE_NOTES;
+    notes: Array<NoteData>;
 }
 
+type Action = AddNoteAction | RemoveNoteAction | PopulateNoteAction
 
 const notesReducer = (state: any, action: Action) => {
-    if (action instanceof AddNoteAction) {
-        return [...state, action.note]
-    } else if (action instanceof RemoveNoteAction) {
-        return state.filter((note: any) => note.title !== action.title)
-    } else if (action instanceof PopulateNoteAction) {
-        return action.notes
-    } else {
-        return state
+    switch (action.type) {
+        case ActionType.ADD_NOTE:
+            return [...state, action.note];
+        case ActionType.POPULATE_NOTES:
+            return action.notes;
+        case ActionType.REMOVE_NOTE:
+            return state.filter((note: any) => note.title !== action.title)
+        default:
+            return state;
     }
 }
 
-export { AddNoteAction, RemoveNoteAction, PopulateNoteAction, notesReducer as default };
+export { ActionType, notesReducer as default };
 export type { Action };
