@@ -21,7 +21,7 @@ interface PopulateNoteAction {
     notes: Array<NoteData>;
 }
 
-type Action = AddNoteAction | RemoveNoteAction | PopulateNoteAction
+type Action = AddNoteAction | RemoveNoteAction | PopulateNoteAction;
 
 const notesReducer = (state: any, action: Action) => {
     switch (action.type) {

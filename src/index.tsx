@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import NoteApp from './components/NoteApp';
-import { test } from './playground/book-ch2'
+import main from './playground/book-ch3'
 
-test();
+main();
 
 ReactDOM.render(
   <React.StrictMode>

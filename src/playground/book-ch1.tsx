@@ -62,3 +62,12 @@ interface NewPoint extends Point2 {
 const printCoord3 = (pt: NewPoint) => {
     console.log(`x: ${pt.x} ; y: ${pt.y} ; z: ${pt.z}`)
 }
+
+const a = ("test" as any ) as number
+
+ const literalTypes = (a: string, b: boolean | "left" | "right") => {
+     //
+ }
+
+ literalTypes("test", "left")
+ literalTypes("test", false)
