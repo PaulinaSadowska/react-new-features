@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useContext } from 'react';
 import NotesContext from '../context/notes-context';
 import useMousePosition from '../hooks/useMousePosition';
+import { RemoveNoteAction } from '../reducers/notes'
 
 type NoteData = {
     title: string,
@@ -18,7 +19,7 @@ const Note: FunctionComponent<NoteProps> = ({ note }) => {
     const position = useMousePosition()
 
     const removeNote = (title: string) => {
-        dispatch({ type: 'REMOVE_NOTE', title })
+        dispatch(new RemoveNoteAction(title))
     }
 
     return (

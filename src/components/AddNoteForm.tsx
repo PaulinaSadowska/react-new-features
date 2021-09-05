@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import NotesContext from '../context/notes-context';
 import useMousePosition from '../hooks/useMousePosition';
+import { AddNoteAction } from '../reducers/notes'
 
 const AddNoteForm = () => {
 
@@ -13,7 +14,7 @@ const AddNoteForm = () => {
 
     const onSubmitNote = (e: any) => {
         e.preventDefault()
-        dispatch({ type: 'ADD_NOTE', note: { title, body } })
+        dispatch(new AddNoteAction({ title, body }))
         setTitle("")
         setBody("")
     }

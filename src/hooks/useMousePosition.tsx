@@ -5,7 +5,7 @@ const useMousePosition = () => {
 
     useEffect(() => {
         console.log("mount")
-        const listener = (e) => {
+        const listener = (e: MouseEvent) => {
             setPosition({ x: e.pageX, y: e.pageY })
         }
         document.addEventListener('mousemove', listener)

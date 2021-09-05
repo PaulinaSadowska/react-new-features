@@ -8,12 +8,14 @@ const NoteList = () => {
     const { notes } = useContext(NotesContext)
 
     return (
-        notes.map((note: NoteData) => (
-            <Note
-                key={note.title}
-                note={note}
-            />
-        ))
+        <React.Fragment>
+            {notes.map((note: NoteData) => (
+                <Note
+                    key={note.title}
+                    note={note}
+                />
+            ))}
+        </React.Fragment>
     );
 }
 
