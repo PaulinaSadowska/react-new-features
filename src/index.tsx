@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import NoteApp from './components/NoteApp';
-import main from './playground/book-ch3'
+import main from './playground/book-ch6'
 
 main();
 
